@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Learning Layers Overview</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .code-editor {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deep Learning Layers Overview</h1>
+
+        <div class="section">
+            <h2>1. Dense (Fully Connected) Layer</h2>
+            <p><strong>Description:</strong> Connects each neuron in one layer to every neuron in the next layer. Useful for combining features extracted by previous layers.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Dense(units, activation=None)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Dense
+
+model.add(Dense(units=128, activation='relu'))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>2. Convolutional Layer</h2>
+            <p><strong>Description:</strong> Applies convolutional filters to the input data to detect local patterns. Commonly used in image processing.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Conv2D(filters, kernel_size, activation=None, input_shape=None)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Conv2D
+
+model.add(Conv2D(filters=32, kernel_size=(3, 3), activation='relu', input_shape=(64, 64, 3)))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>3. Pooling Layer</h2>
+            <p><strong>Description:</strong> Reduces the spatial dimensions of the input data by aggregating information. Common pooling operations include max pooling and average pooling.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.MaxPooling2D(pool_size, strides=None, padding='valid')
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import MaxPooling2D
+
+model.add(MaxPooling2D(pool_size=(2, 2)))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>4. Recurrent Layer</h2>
+            <p><strong>Description:</strong> Handles sequential data where temporal relationships are important. Maintains a hidden state that captures information from previous time steps.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.LSTM(units, activation='tanh', return_sequences=False)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import LSTM
+
+model.add(LSTM(50, activation='tanh'))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>5. Normalization Layer</h2>
+            <p><strong>Description:</strong> Standardizes the inputs to a layer, improving convergence and stabilizing training.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.BatchNormalization()
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import BatchNormalization
+
+model.add(BatchNormalization())
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>6. Dropout Layer</h2>
+            <p><strong>Description:</strong> Reduces overfitting by randomly setting a fraction of input units to zero during training.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Dropout(rate)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Dropout
+
+model.add(Dropout(0.5))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>7. Activation Layer</h2>
+            <p><strong>Description:</strong> Introduces non-linearity into the model by applying an activation function.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Activation(activation)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Activation
+
+model.add(Dense(units=128))
+model.add(Activation('relu'))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>8. Flatten Layer</h2>
+            <p><strong>Description:</strong> Converts multi-dimensional inputs into a one-dimensional vector. Used before Dense layers.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Flatten()
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Flatten
+
+model.add(Flatten())
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>9. Embedding Layer</h2>
+            <p><strong>Description:</strong> Transforms categorical variables into dense vectors of fixed size. Used primarily in NLP tasks.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Embedding(input_dim, output_dim, input_length)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Embedding
+
+model.add(Embedding(input_dim=1000, output_dim=64, input_length=10))
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>10. Attention Layer</h2>
+            <p><strong>Description:</strong> Computes a weighted sum of inputs, allowing the model to focus on important parts of the input sequence.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+# TensorFlow does not have a direct Attention layer; it's often implemented using custom layers or in higher-level APIs.
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Add, Dot, Activation
+
+# Example implementation (simplified)
+query = tf.keras.layers.Input(shape=(None, 64))
+key = tf.keras.layers.Input(shape=(None, 64))
+value = tf.keras.layers.Input(shape=(None, 64))
+
+attention = Dot(axes=-1)([query, key])
+attention = Activation('softmax')(attention)
+context = Dot(axes=-1)([attention, value])
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>11. Residual Layer</h2>
+            <p><strong>Description:</strong> Facilitates the training of very deep networks by introducing shortcut connections that bypass one or more layers.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+# Implemented using functional API for custom residual blocks
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Add, Conv2D, Input
+
+input = Input(shape=(64, 64, 3))
+x = Conv2D(32, (3, 3), padding='same')(input)
+x = Conv2D(32, (3, 3), padding='same')(x)
+x = Add()([x, input])  # Shortcut connection
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>12. Global Average Pooling Layer</h2>
+            <p><strong>Description:</strong> Reduces the spatial dimensions of feature maps by computing the average across spatial dimensions.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.GlobalAveragePooling2D()
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import GlobalAveragePooling2D
+
+model.add(GlobalAveragePooling2D())
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+
+        <div class="section">
+            <h2>13. Concatenation Layer</h2>
+            <p><strong>Description:</strong> Merges multiple inputs into a single output by concatenating them along a specified axis.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <code>
+tf.keras.layers.Concatenate(axis=-1)
+                </code>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <code>
+from tensorflow.keras.layers import Concatenate, Input
+
+input1 = Input(shape=(64, 64, 3))
+input2 = Input(shape=(64, 64, 3))
+concatenated = Concatenate(axis=-1)([input1, input2])
+                </code>
+            </div>
+            <button onclick="window.open('https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing', '_blank')">Run on Google Colab</button>
+        </div>
+    </div>
+</body>
+</html>
