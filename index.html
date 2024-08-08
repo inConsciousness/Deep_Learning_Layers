@@ -148,9 +148,25 @@ model.add(GlobalAveragePooling2D())</code></pre>
             <button class="run-btn" data-link="https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing">Run on Google Colab</button>
         </div>
 
+        <div class="section" id="batch-norm-layer">
+            <h2>9. Batch Normalization Layer</h2>
+            <p><strong>Description:</strong> Normalizes the activations of a layer for each mini-batch. Helps to stabilize and accelerate training.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <pre><code>tf.keras.layers.BatchNormalization()</code></pre>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <pre><code>from tensorflow.keras.layers import BatchNormalization
+
+model.add(BatchNormalization())</code></pre>
+            </div>
+            <button class="run-btn" data-link="https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing">Run on Google Colab</button>
+        </div>
+
         <div class="section" id="dropout-layer">
-            <h2>9. Dropout Layer</h2>
-            <p><strong>Description:</strong> Regularizes the model by randomly setting a fraction of input units to 0 during training.</p>
+            <h2>10. Dropout Layer</h2>
+            <p><strong>Description:</strong> Randomly sets a fraction of input units to 0 during training to prevent overfitting.</p>
             <p><strong>Syntax:</strong></p>
             <div class="code-editor">
                 <pre><code>tf.keras.layers.Dropout(rate)</code></pre>
@@ -164,8 +180,54 @@ model.add(Dropout(rate=0.5))</code></pre>
             <button class="run-btn" data-link="https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing">Run on Google Colab</button>
         </div>
 
-    </div>
+        <div class="section" id="rnn-layer">
+            <h2>11. Recurrent Neural Network (RNN) Layer</h2>
+            <p><strong>Description:</strong> Processes sequences by iterating through the elements and maintaining a hidden state. Useful for time series and NLP tasks.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <pre><code>tf.keras.layers.SimpleRNN(units, activation=None, return_sequences=False)</code></pre>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <pre><code>from tensorflow.keras.layers import SimpleRNN
 
+model.add(SimpleRNN(units=64, activation='tanh'))</code></pre>
+            </div>
+            <button class="run-btn" data-link="https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing">Run on Google Colab</button>
+        </div>
+
+        <div class="section" id="lstm-layer">
+            <h2>12. Long Short-Term Memory (LSTM) Layer</h2>
+            <p><strong>Description:</strong> A type of RNN that uses gating mechanisms to better capture long-term dependencies in sequences.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <pre><code>tf.keras.layers.LSTM(units, activation=None, return_sequences=False)</code></pre>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <pre><code>from tensorflow.keras.layers import LSTM
+
+model.add(LSTM(units=128, activation='tanh'))</code></pre>
+            </div>
+            <button class="run-btn" data-link="https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing">Run on Google Colab</button>
+        </div>
+
+        <div class="section" id="gru-layer">
+            <h2>13. Gated Recurrent Unit (GRU) Layer</h2>
+            <p><strong>Description:</strong> A simplified version of LSTM with fewer gates, making it computationally efficient while still capturing dependencies in sequences.</p>
+            <p><strong>Syntax:</strong></p>
+            <div class="code-editor">
+                <pre><code>tf.keras.layers.GRU(units, activation=None, return_sequences=False)</code></pre>
+            </div>
+            <p><strong>Example Code:</strong></p>
+            <div class="code-editor">
+                <pre><code>from tensorflow.keras.layers import GRU
+
+model.add(GRU(units=128, activation='tanh'))</code></pre>
+            </div>
+            <button class="run-btn" data-link="https://colab.research.google.com/drive/1H5-3IfX2FLyUS67H-uVtH_jNlFs4qB4R?usp=sharing">Run on Google Colab</button>
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 </html>
